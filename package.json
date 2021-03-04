@@ -1,0 +1,46 @@
+{
+  "name": "@axmit/axios-patch-jwt",
+  "version": "3.1.1",
+  "description": "Wrapper for axios library using JWT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rm -rf ./dist && tsc --declaration"
+  },
+  "author": {
+    "name": "Mikhail Sidorov",
+    "email": "msidorov@axmit.com"
+  },
+  "keywords": [
+    "axios",
+    "jwt",
+    "axmit"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "universal-storage": "git+https://github.com/itershukov/universal-storage.git"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.3.2",
+    "@commitlint/config-conventional": "^7.3.1",
+    "@commitlint/format": "^7.3.1",
+    "@types/es6-promise": "^3.3.0",
+    "husky": "^1.2.0",
+    "lint-staged": "^8.1.0",
+    "prettier": "^1.16.4",
+    "typescript": "^3.3.3333"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{tsx,jsx,ts,js,json,css,md}": [
+      "prettier --config .prettierrc --write src/**/*.{tsx,jsx,ts,js,json,css,md}",
+      "git add"
+    ]
+  }
+}
